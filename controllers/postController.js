@@ -1,8 +1,12 @@
 const fs = require('fs');
+const postTemplate = require('../modules/replaceShowPost');
+
 
 exports.getAllPost = (req, res) => {
   res.status(200);
-  res.send('Hello');
+  postTemplate.getPost(req.query.page).then(function (result){
+    res.send(result);
+  });
 };
   
 exports.getPost = (req, res) => {

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WORK TEST</title>
+
+    <style>
+
+/*    INDEX PAGE      */
+        body {
+          padding: 10px;
+          margin: 10px;
+        }
+
+        header {
+          background: greenyellow;
+            height: 80px;
+            padding: 5px;
+        }
+        .link_home {
+          text-decoration: none;
+          font-size: 50px;
+          color: black;
+        }
+
+/*    POSTS  */
+        .post{
+          width: auto;
+          border: solid black;
+          margin-bottom: 40px;
+        } 
+
+        .post_title {
+          font-size: 25px;
+          color: blue;
+          text-align: center;
+          border-bottom: solid black;
+        }
+
+        .post_description{
+          font-size: 20px;
+          text-align: left;
+        } 
+
+/*    BUTTTON PAGE  */
+        .button_page {
+            text-align: center;
+        }
+    </style>
+  </head>
+
+
+
+  <body>
+    <header>
+        <div>
+          <a class="link_home" href="/">Home</a>
+        </div>
+       </header>
+
+       {%DATA%}
+
+       <div class="button_page">
+            <span class=""><a href="{%PREVIOUSPAGE%}">PreviousPage</a></span>
+            <span class=""><a href="{%NEXTPAGE%}">NextPage</a></span>
+        </div>
+  </body>
+</html>

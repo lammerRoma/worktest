@@ -1,35 +1,25 @@
-const fs = require('fs');
 const express = require('express');
+const mongoose = require('mongoose');
+
+const overviewRout = require('./routes/indexRoutes');
+const postRout = require('./routes/postRoutes');
+
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
-const index = fs.readFileSync(`${__dirname}/index.html`, 'utf-8');
+app.use(overviewRout);  
+app.use(postRout);
 
-app.use( (req, res) => {
-    res.send(index);
-});
+async function start() {
+  try{
+    app.listen(PORT, () => {
+      console.log('Server has been started...');
+    })
 
-app.listen(3000);
+  }catch (err) {
+    console.log(err)
+  }
+}
 
-
-
-
-
-
-// const fs = require('fs');
-// const express = require('express');
-
-// const tempOverview = require(`${__dirname}/templates/overview.html`);
-
-// const postRouter = require('./routes/postRoutes');   
-
-// const app = express();
-
-// app.use(express.json());
-
-// app.use('/', (req, res) => {
-//   res.sendFile(tempOverview);
-// });
-
-// app.use('/api', postRouter);
-
-// module.exports = app;
+start();
