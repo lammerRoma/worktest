@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const { resolve } = require('path');
 
 const indexTemp = fs.readFileSync(`${__dirname}/../templates/postPage.html`, 'utf-8');
-const postCards = fs.readFileSync(`${__dirname}/../templates/post.html`, 'utf-8');
+const postCards = fs.readFileSync(`${__dirname}/../templates/postCards.html`, 'utf-8');
 const pagination = require(`${__dirname}/pagination`);
 
 async function getPost (page) {
@@ -20,6 +20,7 @@ async function getPost (page) {
 function replData (temp, el) {
     let output = temp.replace(/{%TITLE%}/g, el.title);
     output = output.replace(/{%DESCRIPTION%}/g, el.body)
+    output = output.replace(/{%LINK%}/g, el.id)
     return output;
 }
 
